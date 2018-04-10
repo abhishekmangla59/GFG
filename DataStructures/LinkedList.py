@@ -28,6 +28,24 @@ class LinkedList:
                 curr = curr.next
             curr.next = newNode
 
+    def delNode(self,key):
+        temp = self.head
+
+        if(temp ==None):
+            return
+
+        if(temp.data==key):
+            self.head = temp.next
+            return
+        while(temp is not None):
+            if(temp.data == key):
+                break
+            pre = temp
+            temp = temp.next
+        pre.next = temp.next
+        temp = None
+
+
 
 
 
@@ -41,5 +59,8 @@ if __name__ == '__main__':
     list.addNode(30)
     list.addNode(11)
 
+
     #print(list.head.data)
+    list.printList()
+    list.delNode(30)
     list.printList()
